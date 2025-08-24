@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course[1] }}</title>
+</head>
+<body>
+    <h1>{{ course[1] }}</h1>
+    <p>{{ course[2] }}</p>
+    
+    <h2>Lessons</h2>
+    <ul>
+        {% for lesson in lessons %}
+            <li>
+                <h3>{{ lesson[2] }}</h3>
+                <p>{{ lesson[3] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Quizzes</h2>
+    <ul>
+        {% for quiz in quizzes %}
+            <li>
+                <a href="{{ url_for('take_quiz', quiz_id=quiz[0]) }}">{{ quiz[2] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('index') }}">Back to Courses</a>
+</body>
+</html>

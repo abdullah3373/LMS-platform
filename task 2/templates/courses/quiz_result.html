@@ -1,0 +1,20 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Quiz Results for {{ course.title }}</h1>
+
+<div class="course-card">
+    <h2>Your Score: {{ score }}/{{ total }}</h2>
+    <p>Percentage: {{ score|floatformat:2 }}%</p>
+    
+    {% if score == total %}
+        <p style="color: green; font-weight: bold;">Perfect score! Well done!</p>
+    {% elif score >= total|add:"-2" %}
+        <p style="color: blue;">Good job!</p>
+    {% else %}
+        <p style="color: orange;">Keep practicing!</p>
+    {% endif %}
+    
+    <a href="{% url 'course_detail' course.id %}" class="btn">Back to Course</a>
+</div>
+{% endblock %}

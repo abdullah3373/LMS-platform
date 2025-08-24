@@ -1,0 +1,18 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Quiz for {{ course.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {% for quiz in quizzes %}
+    <div class="course-card">
+        <h3>Question {{ forloop.counter }}:</h3>
+        <p>{{ quiz.question }}</p>
+        <input type="text" name="quiz_{{ quiz.id }}" placeholder="Your answer" required style="width: 300px; padding: 5px; margin-top: 10px;">
+    </div>
+    {% endfor %}
+    
+    <button type="submit" class="btn">Submit Quiz</button>
+</form>
+{% endblock %}

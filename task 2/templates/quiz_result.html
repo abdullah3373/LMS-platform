@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+</head>
+<body>
+    <h1>Quiz Result</h1>
+    {% if is_correct %}
+        <p style="color: green;">Correct! Well done!</p>
+    {% else %}
+        <p style="color: red;">Incorrect. The correct answer was: {{ correct_answer }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Courses</a>
+</body>
+</html>

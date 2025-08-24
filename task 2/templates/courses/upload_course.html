@@ -1,0 +1,20 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Upload New Course</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div style="margin-bottom: 15px;">
+        <label for="title">Course Title:</label><br>
+        <input type="text" id="title" name="title" required style="width: 300px; padding: 5px;">
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <label for="description">Course Description:</label><br>
+        <textarea id="description" name="description" required style="width: 300px; height: 100px; padding: 5px;"></textarea>
+    </div>
+    
+    <button type="submit" class="btn">Upload Course</button>
+</form>
+{% endblock %}
